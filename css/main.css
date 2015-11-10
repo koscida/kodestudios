@@ -76,12 +76,24 @@ body {
 
 
 section {
-    padding: 100px 0;
+    padding: 0 0 150px;
 }
-@media(min-width:768px) {
+@media (max-width:769px) {
     section {
-        padding: 150px 0;
+        padding: 0 0 10px;
     }
+}
+
+.section-title {
+	background-color: rgba(255, 255, 255, 0.6);
+	height: 120px;
+	margin-bottom: 30px;
+}
+@media (max-width:769px) {
+    .section-title {
+		height: 60px;
+		margin-bottom: 15px;
+	}
 }
 
 
@@ -107,6 +119,9 @@ li {
 	margin-bottom: 10px;
 }
 
+.carousel-holder a {
+	border-bottom: 0;
+}
 
 
 
@@ -222,6 +237,8 @@ header {
 #contact {
 	background-image: url(../images/backgrounds/paper_craft_hires.jpg);
 }
+
+
 
 .intro-statement {
 	color: white;
