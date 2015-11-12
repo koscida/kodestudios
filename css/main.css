@@ -253,9 +253,62 @@ header h1, h3 {
 	margin-bottom: 30px;
 	text-shadow: 1px 1px 4px #000, 0px 0px 1px #000;
 }
+ 
 
-
-
+#featured-cards {
+	height: 400px;
+}
+/* carousel inner */
+.carousel-inner, .carousel-inner .item, .carousel-inner .item img {
+	height: inherit;
+}
+.carousel-inner .item, .carousel-inner .item img {
+	width: inherit;
+}
+.carousel-inner .item img {
+	min-height: 400px;
+}
+.carousel-inner .item.active, .carousel-inner .item.active img {
+	display: inline-block;
+	vertical-align: middle;
+}
+/* carousel indicators */
+.carousel-indicators {
+	left: auto;
+	right: 20px;
+	margin: auto;
+	width: auto;
+}
+.carousel-indicators li, .carousel-indicators .active {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	margin-left: 10px;
+	border-width: 3px;
+	border-color: #993399;
+}
+.carousel-indicators .active {
+	background-color: #9966CC;
+}
+/* carousel controls */
+.carousel-control {
+	width: 10%;
+	height: 80px;
+	background-image: none;
+	background-color: #9966CC;
+	top: 50%;
+	margin-top: -40px;
+}
+.carousel-control.left {
+	left: -5%;
+	background-image: none;
+	background-repeat: none;
+}
+.carousel-control.right {
+	right: -5%;
+	background-image: none;
+	background-repeat: none;
+}
 
 
 
