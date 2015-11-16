@@ -56,6 +56,7 @@ p {
 	padding: 20px 32px;
 	font-size: 1em;
 	line-height: 1.5em;
+	border-radius: 0;
 }
 
 
@@ -177,7 +178,7 @@ li {
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color: #c90;
+    color: #cc9900;
 }
 @media(min-width:768px) {
 	/* bar */
@@ -256,59 +257,68 @@ header h1, h3 {
  
 
 #featured-cards {
-	height: 400px;
+	/*height: 400px;*/
 }
+
 /* carousel inner */
-.carousel-inner, .carousel-inner .item, .carousel-inner .item img {
-	height: inherit;
+.carousel-outer {
+	width: 80%;
+	margin: 0 10%;
+	padding: 0 20px;
 }
-.carousel-inner .item, .carousel-inner .item img {
-	width: inherit;
+.carousel-inner {
+	border: 15px solid rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.7);
 }
-.carousel-inner .item img {
-	min-height: 400px;
-}
-.carousel-inner .item.active, .carousel-inner .item.active img {
-	display: inline-block;
-	vertical-align: middle;
-}
+
 /* carousel indicators */
 .carousel-indicators {
-	left: auto;
-	right: 20px;
-	margin: auto;
-	width: auto;
+	bottom: -35px;
 }
 .carousel-indicators li, .carousel-indicators .active {
-	width: 25px;
-	height: 25px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
-	margin-left: 10px;
-	border-width: 3px;
-	border-color: #993399;
+	border: 0;
+	margin: 0 12px;
+	background-color: white;
 }
 .carousel-indicators .active {
 	background-color: #9966CC;
 }
+
 /* carousel controls */
-.carousel-control {
+.carousel-control-outer {
 	width: 10%;
-	height: 80px;
-	background-image: none;
-	background-color: #9966CC;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	}
+	.carousel-control-outer.left { left: 0; }
+	.carousel-control-outer.right { right: 0; }
+.carousel-control {
+	width: 50px;
+	height: 50px;
 	top: 50%;
-	margin-top: -40px;
+	margin-top: -25px;
+	}
+	.carousel-control.left { right: 0; left: auto; }
+	.carousel-control.right { left: 0; right: auto; }
+.carousel-control, .carousel-control:hover, .carousel-control:focus, .carousel-control:active {
+	opacity: 1;
 }
-.carousel-control.left {
-	left: -5%;
+.carousel-control.left, .carousel-control.right {
+	background-color: #9966CC;
 	background-image: none;
-	background-repeat: none;
+	filter: none;
+	background-repeat: no-repeat;
+	border-radius: 50%;
 }
-.carousel-control.right {
-	right: -5%;
-	background-image: none;
-	background-repeat: none;
+/* carousel sidebar */
+.carousel-sidebar {
+	color: white;
 }
+
 
 
 
@@ -319,12 +329,10 @@ header h1, h3 {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
 }
 
 img::selection {
@@ -336,5 +344,5 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #fed136;
+    webkit-tap-highlight-color: #cc9900;
 }
