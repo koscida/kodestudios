@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kode Studios</title>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+	<!-- Custom CSS -->
+	<link href="css/1140.css" rel="stylesheet" type="text/css" media="all">
+	<link href="css/main.css" rel="stylesheet" type="text/css" media="all">
+	<link href="css/pricing.css" rel="stylesheet" type="text/css" media="all">
+	
+</head>
+<body>
+
+	<div class="inputs">
+	
+		<!-- 
+		<div class="inputWrapper">
+			<div class="label">
+				<label for="">Card Base: </label>
+			</div>
+			<div class="input">
+				<input type="radio" name="cardbase" value="1" id="cb1"><label for="cb1">4x5.5 Hot Buy</label>
+				<input type="radio" name="cardbase" value="2" id="cb2"><label for="cb2">4x5.5 Cardstock</label>
+			</div>
+		</div>
+		
+		<div class="inputWrapper">
+			<div class="label">
+				<label for="">Card Backing:</label>
+			</div>
+			<div class="input">
+				<input type="radio" name="cardback" value="0" id="cbk0"><label for="cbk0">None</label>
+				<input type="radio" name="cardback" value="1" id="cbk1"><label for="cbk1">Hot Buy</label>
+				<input type="radio" name="cardback" value="2" id="cbk2"><label for="cbk2">Cardstock</label>
+			</div>	
+		</div>
+		
+		<div class="inputWrapper">
+			<div class="label">
+				<label for="">Extra Paper:</label>
+			</div>
+			<div class="input">
+				<select id="cardbase">
+					<option value="1">Hot Buy</option>
+					<option value="2">Michaels Cardstock</option>
+				</select>
+			</div>			
+		</div>
+		
+		<div class="inputWrapper">
+			<div class="label">
+				<label for="">Ribbon:</label>
+			</div>
+			<div class="input">
+				<input type="radio" name="cardback" value="0" id="cbk0"><label for="cbk0">None</label>
+				<input type="radio" name="cardback" value="1" id="cbk1"><label for="cbk1">Hot Buy</label>
+				<input type="radio" name="cardback" value="2" id="cbk2"><label for="cbk2">Cardstock</label>
+				<input type="radio" name="cardback" value="2" id="cbk2"><label for="cbk2">Cardstock</label>
+				<select id="cardbase">
+					<option value="1">360 1'</option>
+					<option value="2">Thin</option>
+					<option value="2">Holiday</option>
+				</select>
+			</div>
+			<div class="input">
+				<select id="cardbase">
+					<option value="1">4'</option>
+					<option value="2">5.5'</option>
+				</select>
+			</div>			
+		</div>
+		
+		<div class="inputWrapper">
+			<button id="calc">Calc</button>
+		</div>
+		-->
+		<div class="inputWrapper">
+			<div class="label">
+				<label>Materials: </label>
+			</div>
+			<div class="input">
+				<p id="materials"></p>
+			</div>
+		</div>
+		 
+		 
+	</div>
+	
+	
+	<!-- jQuery -->
+	<script src="js/jquery-1.11.3.min.js"></script>
+	
+	<script>
+		var options = [
+			{"name" : "Card Base:", 
+			 "group" : "cardbase", 
+			 "options" : 
+				[{"o": "4x5.5 Cardstock"},
+				 {"o": "4x5.5 Hot Buy"}]
+			},
+			{"name" : "Card Back:", 
+				 "group" : "cardback", 
+				 "options" : 
+					[{"o": "None"},
+					 {"o": "Hot Buy"},
+					 {"o": "Cardstock"}]
+				}
+		];
+		//console.log(options);
+		
+		var len = options.length;
+		//console.log(len);
+		for(var i = 0; i < len; i++) {
+			var obj = options[i];
+			
+		    var name = obj.name;
+		    var group = obj.group;
+		    
+		    var $div = $("<div>", {class: "inputWrapper"});
+		    
+		    var $label = $("<div>", {class: "label"});
+		    var $l = $("<label>");
+		    $l.html(name);
+		    $label.append($l);
+		    $div.append($label);
+		    
+		    var optionsArr = obj.options;
+		    var $input = $("<div>", {class: "input"});
+		    var lenOpts = optionsArr.length;
+		    for(var j=0; j<lenOpts; j++) {
+		    	var $r = $('<input>').attr({
+		    		type : "radio",
+		    		name : group, 
+		    		id : (group + j),
+		    		value: j
+		    	}); 
+		    	$input.append($r);
+		    	var $la = $("<label>").attr({
+		    		for: (group + j)
+		    	});
+		    	$la.html(optionsArr[i].o);
+		    	$input.append($la);
+		    }
+		    $div.append($input);
+		    
+		    $(".inputs").append($div);
+		}
+	</script>
+	
+	<script>
+		$(".input input").change(function(){
+			doCalc();
+		});
+		$("#calc").click(function(event){
+			event.preventDefault();
+			doCalc();
+		});
+		
+		function doCalc() {
+			var materialsCost = 0.000;
+			
+			var cardstockSalePrice = (10.0/4.0);
+			var cardstockSheetsPerPack = 50.0;
+			var cardstockPricePerSheet = (cardstockSalePrice/cardstockSheetsPerPack);
+			var cardstockCardsPerSheets = 2.0;
+			var cardstockBacksPerSheets = 4.0;
+			
+			var hotBuyPrice = 5.0;
+			var hotBuySheetsPerPack = (48.0-12.0);
+			var hotBuyPricePerSheet = (hotBuyPrice/hotBuySheetsPerPack);
+			var hotBuyCardsPerSheets = 2.0;
+			var hotBuyBacksPerSheets = 6.0;
+			
+			
+			// card base
+			var cb = $("input:radio[name=cardbase]:checked").val();
+			switch(cb) {
+				// 4x5.5 Hot Buy
+				case 0:
+				case "0":
+					materialsCost += cardstockPricePerSheet / cardstockCardsPerSheets;
+					break;
+				// 4x5.5 Michaels Cardstock
+				case 1:
+				case "1":
+					materialsCost += hotBuyPricePerSheet / hotBuyCardsPerSheets;
+					break;
+			}
+			//console.log(materialsCost);
+			
+			
+			// card back
+			var cbk = $("input:radio[name=cardback]:checked").val();
+			switch(cbk) {
+				// None
+				case 0:
+				case "0":
+					break;
+				// Hot Buy
+				case 1:
+				case "1":
+					var m = cardstockPricePerSheet / cardstockBacksPerSheets;
+					materialsCost += m;
+					break;
+				// Cardstock
+				case 2:
+				case "2":
+					materialsCost += hotBuyPricePerSheet / hotBuyBacksPerSheets;
+					break;
+			}
+			//console.log(materialsCost);
+			
+			
+			
+			
+			$("#materials").html(materialsCost.toFixed(3));
+		}
+		
+	</script>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ h1, h2 {
 	font-family: "Fredericka the Great";
 }
 h1 {
-	font-size: 4em;
+	font-size: 3em;
 	line-height: 1.5em;
 }
 h2 {
@@ -87,7 +87,6 @@ section {
 
 .section-title {
 	background-color: rgba(255, 255, 255, 0.6);
-	height: 120px;
 	margin-bottom: 30px;
 }
 @media (max-width:769px) {
@@ -317,7 +316,15 @@ header h1, h3 {
 /* carousel sidebar */
 .carousel-sidebar {
 	color: white;
+	text-align: center;
 }
+.carousel-sidebar span { font-weight: bold;  }
+	.carousel-sidebar .t1 { font-style: italic; }
+	.carousel-sidebar .t2 { font-style: italic; font-family: helvetica; }
+	.carousel-sidebar .t3 { font-style: italic; font-family: helvetica; }
+	.carousel-sidebar .t4 { font-style: italic; }
+	.carousel-sidebar .t5 { font-weight: bold; }
+	.carousel-sidebar .t6 { font-weight: bold; }
 
 
 

@@ -1,0 +1,38 @@
+.inputs {
+	width: 800px;
+	margin: 10px auto;
+}
+.inputWrapper {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+.inputWrapper .label, .inputWrapper .input {
+	display: inline-block;
+	float: left;
+}
+.inputWrapper .label {
+	width: 19%;
+	margin-bottom: 5px;
+	margin-right: 1%;
+	text-align: center;
+}
+.inputWrapper .input {
+	width: 80%;
+}
+.input input {
+	height: 0;
+	width: 0;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+.input label {
+	background: #aaaaff;
+	padding: 5px 8px;
+	margin: 5px;
+}
+input:checked + label {
+	background: #6666ff;
+}
