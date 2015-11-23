@@ -36,7 +36,6 @@ p {
 
 
 .btn, .btn-primary {
-	color: white;
 	background: #9966CC;
 	border: 0;
 	
@@ -68,6 +67,7 @@ body {
 	overflow-x: hidden;
 	font-size: 20px;
 	line-height: 1.5em;
+	color: white;
 }
 * { 
 	box-sizing: border-box;
@@ -87,12 +87,12 @@ section {
 
 .section-title {
 	background-color: rgba(255, 255, 255, 0.6);
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 @media (max-width:769px) {
     .section-title {
 		height: 60px;
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 	}
 }
 
@@ -105,8 +105,8 @@ a {
 a:hover, a:focus, a:active {
 	text-decoration: none;
 	cursor: pointer;
-	color: #F5BE00;
-	border-bottom: 1px solid #F5BE00;
+	color: #993399;
+	border-bottom: 1px solid #993399;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
@@ -162,23 +162,38 @@ li {
 .navbar-default .navbar-brand {
 	font-family: "Fredericka the Great";
     color: #993399;
-}
+	}
+	.navbar-default .navbar-brand:active,
+	.navbar-default .navbar-brand:hover,
+	.navbar-default .navbar-brand:focus {
+		color: #660066;
+	}
 
 /* links */
-.navbar-default .nav a {
-    text-transform: uppercase;
+.navbar-default .navbar-nav li a {
+	color: white;
+	text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #fff !important;
-}
-.navbar-default .nav .active a {
+	}
+	.navbar-default .navbar-nav li a:active,
+	.navbar-default .navbar-nav li a:hover,
+	.navbar-default .navbar-nav li a:focus {
+	    outline: 0;
+	    color: #ddd;
+	}
+.navbar-default .navbar-nav li.active a {
 	background-color: #993399;
-}
-.navbar-default .nav li a:hover,
-.navbar-default .nav li a:focus {
-    outline: 0;
-    color: #cc9900;
-}
+	color: white;
+	}
+	.navbar-default .navbar-nav li.active a:active,
+	.navbar-default .navbar-nav li.active a:hover,
+	.navbar-default .navbar-nav li.active a:focus {
+		outline: 0;
+		background-color: #993399;
+		color: #ddd;
+	}
+
 @media(min-width:768px) {
 	/* bar */
     .navbar-default {
@@ -232,16 +247,19 @@ header {
 	background-image: url(../images/backgrounds/postcards.jpg);
 }
 #about {
-	background-image: url(../images/backgrounds/paper_flower.jpg);
+	background-image: url(../images/backgrounds/dark_mosaic_2X.png);
 }
 #contact {
 	background-image: url(../images/backgrounds/paper_craft_hires.jpg);
 }
 
 
+.img-circle {
+	border: 8px solid #330033;
+}
+
 
 .intro-statement {
-	color: white;
 	margin: 150px 0 100px;
 	padding: 30px 50px;
 	background: rgba(255, 255, 255, 0);
@@ -269,6 +287,22 @@ header h1, h3 {
 	border: 15px solid rgba(255, 255, 255, 0.7);
 	background-color: rgba(255, 255, 255, 0.7);
 }
+.item-info {
+	width: 100%;
+	padding: 15px 30px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.item-info-title {
+	line-height: 32px;
+	float: left;
+}
+.item-info .btn {
+	margin-left: 30px;
+	float: left;
+}
 
 /* carousel indicators */
 .carousel-indicators {
@@ -279,7 +313,7 @@ header h1, h3 {
 	height: 10px;
 	border-radius: 50%;
 	border: 0;
-	margin: 0 12px;
+	margin: 0 10px;
 	background-color: white;
 }
 .carousel-indicators .active {
@@ -313,18 +347,10 @@ header h1, h3 {
 	background-repeat: no-repeat;
 	border-radius: 50%;
 }
+
 /* carousel sidebar */
 .carousel-sidebar {
-	color: white;
-	text-align: center;
 }
-.carousel-sidebar span { font-weight: bold;  }
-	.carousel-sidebar .t1 { font-style: italic; }
-	.carousel-sidebar .t2 { font-style: italic; font-family: helvetica; }
-	.carousel-sidebar .t3 { font-style: italic; font-family: helvetica; }
-	.carousel-sidebar .t4 { font-style: italic; }
-	.carousel-sidebar .t5 { font-weight: bold; }
-	.carousel-sidebar .t6 { font-weight: bold; }
 
 
 
